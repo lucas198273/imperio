@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { perfumes } from "../data/Product";
 import { useCart } from "../../contexts/CartContext";
+import { toast } from "react-toastify";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const ProductPage = () => {
@@ -38,12 +39,26 @@ const ProductPage = () => {
   };
 
   const handleAddToCart = (perfume: any) => {
-    addItem({
-      id: perfume.id,
-      name: perfume.name,
-      price: perfume.price,
-      imageUrl: perfume.imageUrl,
-    });
+    if (perfume.available) {
+      addItem({
+        id: perfume.id,
+        name: perfume.name,
+        price: perfume.price,
+        imageUrl: perfume.imageUrl,
+      });
+      toast.success(`${perfume.name} adicionado ao carrinho!`);
+    } else {
+      toast.error("Este perfume não está disponível no estoque!");
+    }
+  };
+
+  const handleWhatsApp = (perfume: any) => {
+    const mensagem = encodeURIComponent(
+      `Olá! Tenho interesse no perfume "${perfume.name}" por R$${perfume.price.toFixed(2)}.`
+    );
+    const whatsappLink = `https://wa.me/553198749678?text=${mensagem}`;
+    window.open(whatsappLink, "_blank");
+    toast.info(`Mensagem enviada para o WhatsApp sobre ${perfume.name}!`);
   };
 
   // Página de todos os produtos
@@ -56,8 +71,15 @@ const ProductPage = () => {
             {perfumes.map((p) => (
               <div
                 key={p.id}
-                className="bg-white p-4 rounded-lg shadow-lg border-2 border-blue-400 flex flex-col items-center text-center"
+                className="bg-white p-4 rounded-lg shadow-lg border-2 border-blue-400 flex flex-col items-center text-center relative"
               >
+                <span
+                  className={`absolute top-2 right-2 px-2 py-1 text-xs font-semibold rounded-full ${
+                    p.available ? "bg-green-600" : "bg-gray-400"
+                  } text-white`}
+                >
+                  {p.available ? "Disponível" : "Indisponível"}
+                </span>
                 <Link to={`/product/${p.id}`} className="block w-full">
                   <img
                     src={p.imageUrl}
@@ -69,9 +91,24 @@ const ProductPage = () => {
                 </Link>
                 <button
                   onClick={() => handleAddToCart(p)}
-                  className="mt-3 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition"
+                  className={`mt-3 px-4 py-2 font-semibold rounded-full transition ${
+                    p.available
+                      ? "bg-blue-600 hover:bg-blue-700 text-white"
+                      : "bg-gray-400 text-white cursor-not-allowed"
+                  }`}
+                  disabled={!p.available}
                 >
                   Adicionar ao Carrinho
+                </button>
+                <button
+                  onClick={() => handleWhatsApp(p)}
+                  className={`mt-2 px-4 py-2 rounded-lg font-semibold transition ${
+                    p.available
+                      ? "bg-green-700 text-white hover:bg-green-800"
+                      : "bg-green-700 text-white hover:bg-green-800"
+                  }`}
+                >
+                  {p.available ? "Pedir pelo WhatsApp" : "Encomendar pelo WhatsApp"}
                 </button>
               </div>
             ))}
@@ -98,12 +135,19 @@ const ProductPage = () => {
     <div className="relative">
       <section className="py-16 px-4 max-w-7xl mx-auto text-blue-900 pt-24">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
-          <div className="w-full md:w-1/3 flex justify-center">
+          <div className="w-full md:w-1/3 flex justify-center relative">
             <img
               src={selectedPerfume.imageUrl}
               alt={selectedPerfume.name}
               className="w-full max-w-[16rem] sm:max-w-xs md:max-w-sm h-auto object-contain rounded-lg shadow-lg border-4 border-blue-500 mx-auto"
             />
+            <span
+              className={`absolute top-2 right-2 px-2 py-1 text-xs font-semibold rounded-full ${
+                selectedPerfume.available ? "bg-green-600" : "bg-gray-400"
+              } text-white`}
+            >
+              {selectedPerfume.available ? "Disponível" : "Indisponível"}
+            </span>
           </div>
           <div className="w-full md:w-2/3 space-y-4">
             <h1 className="text-3xl font-bold text-blue-600">{selectedPerfume.name}</h1>
@@ -111,12 +155,29 @@ const ProductPage = () => {
             <p className="text-xl font-bold text-yellow-600">
               R$ {selectedPerfume.price.toFixed(2)}
             </p>
-            <button
-              onClick={() => handleAddToCart(selectedPerfume)}
-              className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition"
-            >
-              Adicionar ao Carrinho
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button
+                onClick={() => handleAddToCart(selectedPerfume)}
+                className={`px-6 py-2 font-semibold rounded-full transition ${
+                  selectedPerfume.available
+                    ? "bg-blue-600 hover:bg-blue-700 text-white"
+                    : "bg-gray-400 text-white cursor-not-allowed"
+                }`}
+                disabled={!selectedPerfume.available}
+              >
+                Adicionar ao Carrinho
+              </button>
+              <button
+                onClick={() => handleWhatsApp(selectedPerfume)}
+                className={`px-6 py-2 rounded-lg font-semibold transition ${
+                  selectedPerfume.available
+                    ? "bg-green-700 text-white hover:bg-green-800"
+                    : "bg-green-700 text-white hover:bg-green-800"
+                }`}
+              >
+                {selectedPerfume.available ? "Pedir pelo WhatsApp" : "Encomendar pelo WhatsApp"}
+              </button>
+            </div>
             <button
               onClick={() => setShowDetails(!showDetails)}
               className="px-6 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 font-semibold rounded-full transition"
