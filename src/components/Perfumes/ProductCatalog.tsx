@@ -18,7 +18,7 @@ const ProductCatalog: React.FC = () => {
     const mensagem = encodeURIComponent(
       `Olá! Tenho interesse no perfume "${perfume.name}" por R$${perfume.price.toFixed(2)}.`
     );
-    const whatsappLink = `https://wa.me/5531999999999?text=${mensagem}`;
+    const whatsappLink = `https://wa.me/553198749678?text=${mensagem}`;
     window.open(whatsappLink, "_blank");
     toast.info(`Mensagem enviada para o WhatsApp sobre ${perfume.name}!`);
   };
