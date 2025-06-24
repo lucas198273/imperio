@@ -1,5 +1,5 @@
 import React from "react";
-import { FaYoutube, FaTiktok, FaInstagram } from "react-icons/fa";
+import {  FaInstagram } from "react-icons/fa";
 
 const SocialMediaSection: React.FC = () => {
   return (
@@ -20,27 +20,7 @@ const SocialMediaSection: React.FC = () => {
         </p>
 
         <div className="flex justify-center gap-8 flex-wrap">
-          {/* YouTube */}
-          <a
-            href="https://youtube.com/@listen_kazak?si=WWjfE2QBzP4pNmdH"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center transition-transform hover:scale-110 text-[#facc15] hover:text-yellow-500"
-          >
-            <FaYoutube className="w-10 h-10 mb-2" />
-            <span className="text-sm font-medium">YouTube</span>
-          </a>
-
-          {/* TikTok */}
-          <a
-            href="https://www.tiktok.com/@listen_kazak?_t=ZM-8wW1Kr6GF4H&_r=1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center transition-transform hover:scale-110 text-[#facc15] hover:text-yellow-500"
-          >
-            <FaTiktok className="w-10 h-10 mb-2" />
-            <span className="text-sm font-medium">TikTok</span>
-          </a>
+       
 
           {/* Instagram */}
           <a

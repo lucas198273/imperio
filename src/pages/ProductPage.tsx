@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowUp } from "lucide-react";
 import { perfumes } from "../data/Product";
+import { useCart } from "../../contexts/CartContext";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const ProductPage = () => {
@@ -11,24 +12,24 @@ const ProductPage = () => {
   const [showDetails, setShowDetails] = useState(false);
   const [showScroll, setShowScroll] = useState(false);
 
-  // Efeito para atualizar o perfume selecionado e aplicar scroll automático
-  useEffect(() => {
-    if (id) {
-      const perfume = perfumes.find((p) => p.id === id);
-      setSelectedPerfume(perfume || perfumes[0]);
-    } else {
-      setSelectedPerfume(null);
-      // Scroll automático ao abrir a página de todos os produtos
-      window.scrollTo({ top: 0 });
-    }
+  const { addItem } = useCart();
 
-    const handleScroll = () => {
-      setShowScroll(window.scrollY > 200);
-    };
+useEffect(() => {
+  // Sempre rola pro topo ao mudar o ID (detalhes) ou abrir todos os produtos
+  window.scrollTo({ top: 0, behavior: "smooth" });
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [id]);
+  if (id) {
+    const perfume = perfumes.find((p) => p.id === id);
+    setSelectedPerfume(perfume || perfumes[0]);
+  } else {
+    setSelectedPerfume(null);
+  }
+
+  const handleScroll = () => setShowScroll(window.scrollY > 200);
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [id]);
+
 
   const handleProductClick = (id: string) => {
     setSelectedPerfume(perfumes.find((p) => p.id === id) || perfumes[0]);
@@ -40,6 +41,15 @@ const ProductPage = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleAddToCart = (perfume: any) => {
+    addItem({
+      id: perfume.id,
+      name: perfume.name,
+      price: perfume.price,
+      imageUrl: perfume.imageUrl,
+    });
+  };
+
   // Página de todos os produtos
   if (!selectedPerfume && !id) {
     return (
@@ -48,22 +58,27 @@ const ProductPage = () => {
           <h1 className="text-3xl font-bold text-blue-600 mb-8 text-center">Todos os Produtos</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {perfumes.map((p) => (
-              <Link to={`/product/${p.id}`} key={p.id} className="block">
-                <div className="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition border-2 border-blue-400">
+              <div key={p.id} className="bg-white p-4 rounded-lg shadow-lg border-2 border-blue-400 flex flex-col items-center text-center">
+                <Link to={`/product/${p.id}`} className="block w-full">
                   <img
                     src={p.imageUrl}
                     alt={p.name}
                     className="w-full h-48 object-contain rounded-md mx-auto"
                   />
-                  <h3 className="text-lg font-medium text-blue-700 mt-2 text-center">{p.name}</h3>
-                  <p className="text-center font-bold text-yellow-600">R$ {p.price.toFixed(2)}</p>
-                </div>
-              </Link>
+                  <h3 className="text-lg font-medium text-blue-700 mt-2">{p.name}</h3>
+                  <p className="font-bold text-yellow-600">R$ {p.price.toFixed(2)}</p>
+                </Link>
+                <button
+                  onClick={() => handleAddToCart(p)}
+                  className="mt-3 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition"
+                >
+                  Adicionar ao Carrinho
+                </button>
+              </div>
             ))}
           </div>
         </section>
 
-        {/* Botão de scroll para o topo */}
         {showScroll && (
           <button
             onClick={scrollToTop}
@@ -77,7 +92,7 @@ const ProductPage = () => {
     );
   }
 
-  // Página de detalhe do produto
+  // Página de detalhes do produto
   if (!selectedPerfume) return <div>Carregando...</div>;
 
   return (
@@ -98,8 +113,14 @@ const ProductPage = () => {
               R$ {selectedPerfume.price.toFixed(2)}
             </p>
             <button
+              onClick={() => handleAddToCart(selectedPerfume)}
+              className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition"
+            >
+              Adicionar ao Carrinho
+            </button>
+            <button
               onClick={() => setShowDetails(!showDetails)}
-              className="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition"
+              className="px-6 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 font-semibold rounded-full transition"
             >
               {showDetails ? "Ocultar Detalhes" : "Exibir Sobre"}
             </button>
@@ -117,9 +138,7 @@ const ProductPage = () => {
         </div>
 
         <div className="mb-12 text-center">
-          <h2 className="text-2xl font-semibold text-blue-600 mb-6 inline-block">
-            Produtos Relacionados
-          </h2>
+          <h2 className="text-2xl font-semibold text-blue-600 mb-6">Produtos Relacionados</h2>
           <Carousel
             showThumbs={false}
             infiniteLoop
@@ -153,7 +172,6 @@ const ProductPage = () => {
         </div>
       </section>
 
-      {/* Botão de scroll sempre disponível */}
       {showScroll && (
         <button
           onClick={scrollToTop}

@@ -33,45 +33,116 @@ export default function PerfumeCarrousel() {
 
   const perfumes: Perfume[] = [
     {
-      id: "p1",
-      name: "070",
-      price: 199.9,
-      imageUrl: "/assets/masculinos/070-1.webp",
-      description:
-        "A delicate floral fragrance inspired by the elegance of the iris flower, evoking sophistication and grace.",
-      notes: ["Iris", "Jasmine", "Vanilla", "Sandalwood"],
-      inStock: true,
-    },
-    {
-      id: "p2",
-      name: "Noite de Verão",
-      price: 249.5,
-      imageUrl: "/assets/masculinos/087-2.webp",
-      description:
-        "A vibrant and warm scent capturing the essence of a summer night, with citrus and woody undertones.",
-      notes: ["Bergamot", "Cedarwood", "Amber", "Musk"],
-      inStock: true,
-    },
-    {
-      id: "p3",
-      name: "Étoile d’Or",
-      price: 299.0,
-      imageUrl: "/assets/masculinos/136-1.webp",
-      description:
-        "A luxurious fragrance with sparkling top notes and a rich, golden heart, perfect for evening wear.",
-      notes: ["Champagne", "Rose", "Oud", "Patchouli"],
-      inStock: false,
-    },
-    {
-      id: "p4",
-      name: "Étoile d’Or",
-      price: 299.0,
-      imageUrl: "/assets/masculinos/387-1.webp",
-      description:
-        "A luxurious fragrance with sparkling top notes and a rich, golden heart, perfect for evening wear.",
-      notes: ["Champagne", "Rose", "Oud", "Patchouli"],
-      inStock: false,
-    },
+  id: "p2",
+  name: "Arabic Collection Yara ",
+  price: 189.9,
+  imageUrl: "/assets/masculinos/002-1.webp",
+  description: "Inspirado no perfume Yara, o Arabic Collection A002 é uma fragrância feminina que une tradição e modernidade, com uma combinação envolvente e marcante.",
+  notes: [
+    "Orquídea",
+    "Heliotrópio",
+    "Tangerina"
+  ],
+    inStock: true,
+},
+
+{
+  id: "p3",
+  name: "Brand Collection 212 Vip Men ",
+  price: 199.9,
+  imageUrl: "/assets/masculinos/008-2.webp",
+  description: "Inspirado no 212 Vip Men de Carolina Herrera, o Brand Collection 008 é um perfume âmbar amadeirado com um frescor sofisticado que combina menta e vodka em uma explosão de aromas masculinos marcantes.",
+  notes: [
+    "Menta",
+    "Vodka",
+    "Gengibre",
+    "Âmbar",
+    "Notas Amadeiradas"
+  ],
+    inStock: true,
+}
+,
+{
+  id: "p4",
+  name: "Arabic Collection  Amber Rouge (Orientica) ",
+  price: 79.9,
+  imageUrl: "/assets/masculinos/026.webp",
+  description: "Inspirado no Amber Rouge (Orientica) e reconhecido como o “irmão gêmeo” do Baccarat Rouge 540, o Arabic Collection A026 é uma fragrância unissex âmbar-amadeirada especiada, ideal para quem busca sofisticação marcante.",
+  notes: [
+    "Açafrão",
+    "Jasmim",
+    "Madeira de Âmbar",
+    "Âmbar Cinzento",
+    "Cedro",
+    "Resina de Abeto"
+  ],
+    inStock: true,
+}
+,
+   {
+  id: "p5",
+  name: "Brand Collection Bleu de Chanel",
+  price: 209.9,
+  imageUrl: "/assets/masculinos/070-1.webp",
+  description: "Inspirado no icônico Bleu de Chanel, o Brand Collection 070 é um perfume masculino aromático-amadeirado atemporal, com frescor revigorante e rastro sofisticado em frasco azul profundo.",
+  notes: [
+    "Toranja (grapefruit)",
+    "Limão",
+    "Hortelã (menta)",
+    "Pimenta rosa",
+    "Gengibre",
+    "Noz‑moscada",
+    "Jasmim",
+    "Iso E Super",
+    "Incenso",
+    "Vetiver",
+    "Cedro",
+    "Sândalo",
+    "Patchouli",
+    "Ládano",
+    "Almíscar branco"
+  ],
+    inStock: true,
+},
+  {
+  id: "p6",
+  name: "Brand Collection   Olympéa 087",
+  price: 209.9,
+  imageUrl: "/assets/masculinos/087-2.webp",
+  description: "Inspirado no icônico Olympéa de Paco Rabanne, o Brand Collection 087 é uma fragrância feminina oriental floral com contraste marcante entre o frescor salgado e a doçura cremosa da baunilha, evocando a força de uma deusa moderna.",
+  notes: [
+    "Jasmim aquático",
+    "Tangerina verde",
+    "Flor de gengibre",
+    "Baunilha salgada",
+    "Sal",
+    "Âmbar cinzento",
+    "Madeira de caxemira",
+    "Sândalo"
+  ],
+    inStock: true,
+}
+,{
+  id: "p7",
+  name: "Brand Collection  Scandal 136",
+  price: 209.9,
+  imageUrl: "/assets/masculinos/136-1.webp",
+  description: "Inspirado no icônico Scandal de Jean Paul Gaultier, o Brand Collection 136 é uma fragrância feminina chypre gourmand poderosa, criada para causar impacto e empoderar. Uma verdadeira ‘revolução olfativa’ para uma mulher moderna e audaciosa.",
+  notes: [
+    "Laranja sanguínea",
+    "Mandarina",
+    "Mel",
+    "Gardênia",
+    "Flor de laranjeira",
+    "Jasmim",
+    "Pêssego",
+    "Cera de abelha",
+    "Caramelo",
+    "Patchouli",
+    "Alcaçuz"
+  ],
+    inStock: true,
+}
   ];
 
   const phoneNumber = "5531999999999";
