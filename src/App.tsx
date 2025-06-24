@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import AOS from "aos";
@@ -18,7 +17,7 @@ import Cart from "./components/Cart/Cart";
 import ProductPage from "./pages/ProductPage";
 
 function AppContent() {
-  const { items, toggleCart } = useCart();
+  const { items, total, toggleCart } = useCart();
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
@@ -27,6 +26,7 @@ function AppContent() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header onCartClick={() => toggleCart(true)} cartItemCount={items.length} />
+
       <Routes>
         <Route
           path="/"
@@ -45,10 +45,16 @@ function AppContent() {
         />
         <Route path="/about" element={<About />} />
         <Route path="/product/:id" element={<ProductPage />} />
-        <Route path="/products" element={<ProductPage />} /> {/* Nova rota para lista */}
+        <Route path="/products" element={<ProductPage />} />
       </Routes>
+
       <Footer />
-      <Cart onClose={() => toggleCart(false)} />
+
+      {/* Força re-render do Cart usando key que muda com items.length e total */}
+      <Cart
+        key={`${items.length}-${total.toFixed(2)}`}
+        onClose={() => toggleCart(false)}
+      />
     </div>
   );
 }
