@@ -1,7 +1,7 @@
 export default function Hero() {
   const handleSubmit = () => {
     const message = `Olá! Gostaria de fazer um pedido de perfume.`;
-    const whatsappLink = `https://wa.me/5531983703055?text=${encodeURIComponent(message)}`;
+    const whatsappLink = `https://wa.me/553198749678?text=${encodeURIComponent(message)}`;
     window.open(whatsappLink, '_blank');
   };
 

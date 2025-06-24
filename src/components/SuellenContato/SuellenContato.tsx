@@ -17,7 +17,7 @@ export default function SuellenContato() {
 
         {/* Botão do WhatsApp */}
         <a
-          href="https://wa.me/5531999999999" // Substitua pelo número correto
+          href="https://wa.me/553198749678" // Substitua pelo número correto
           target="_blank"
           rel="noopener noreferrer"
           className="bg-[#5e1f3d] text-white px-6 py-3 rounded-full shadow-md hover:bg-[#45102d] transition"

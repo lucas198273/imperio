@@ -45,7 +45,7 @@ const ProductInfoSection: React.FC = () => {
               consultar disponibilidade e personalizar sua compra.
             </p>
             <a
-              href="https://wa.me/5531999999999"
+              href="https://wa.me/553198749678"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-block px-6 py-3 rounded-lg transition-colors font-semibold"

@@ -145,7 +145,7 @@ export default function PerfumeCarrousel() {
 }
   ];
 
-  const phoneNumber = "5531999999999";
+  const phoneNumber = "553198749678";
   const handleWhatsApp = (perfume: Perfume) => {
     const mensagem = encodeURIComponent(
       `Olá! Tenho interesse no perfume "${perfume.name}" por R$${perfume.price.toFixed(2)}.`

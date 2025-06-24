@@ -18,15 +18,7 @@ export default function Footer() {
           >
             <FaInstagram />
           </a>
-          <a
-            href="https://youtube.com/@listen_kazak?si=WWjfE2QBzP4pNmdH"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-200 transition-colors duration-300"
-            aria-label="YouTube"
-          >
-            <FaYoutube />
-          </a>
+         
         </div>
       </div>
 

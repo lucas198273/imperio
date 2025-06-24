@@ -14,6 +14,25 @@
       justify-content: center !important;
     }
   }
+  .carousel .control-arrow {
+  background-color: rgba(30, 64, 175, 0.7); /* bg-blue-800 com opacidade */
+  border-radius: 9999px; /* rounded-full */
+  width: 40px;
+  height: 40px;
+  top: 35%;
+  transform: translateY(-50%);
+}
+
+.carousel .control-arrow:hover {
+  background-color: rgba(30, 64, 175, 1); /* hover mais forte */
+}
+
+.carousel .control-prev::before,
+.carousel .control-next::before {
+  color: white;
+  font-size: 20px;
+}
+
 /* Comportamento de rolagem suave */
 html {
   scroll-behavior: smooth;
