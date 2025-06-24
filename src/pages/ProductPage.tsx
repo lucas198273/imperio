@@ -1,22 +1,33 @@
 import { Carousel } from "react-responsive-carousel";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { ArrowUp } from "lucide-react";
 import { perfumes } from "../data/Product";
-import { Link } from "react-router-dom";
-// import GradientTransition from "../components/GradientTransition/GradientTransition.tsx"; // Correção do caminho
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const ProductPage = () => {
   const { id } = useParams<{ id?: string }>();
   const [selectedPerfume, setSelectedPerfume] = useState<any>(null);
   const [showDetails, setShowDetails] = useState(false);
+  const [showScroll, setShowScroll] = useState(false);
 
+  // Efeito para atualizar o perfume selecionado e aplicar scroll automático
   useEffect(() => {
     if (id) {
       const perfume = perfumes.find((p) => p.id === id);
       setSelectedPerfume(perfume || perfumes[0]);
     } else {
       setSelectedPerfume(null);
+      // Scroll automático ao abrir a página de todos os produtos
+      window.scrollTo({ top: 0 });
     }
+
+    const handleScroll = () => {
+      setShowScroll(window.scrollY > 200);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [id]);
 
   const handleProductClick = (id: string) => {
@@ -25,10 +36,14 @@ const ProductPage = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Página de todos os produtos
   if (!selectedPerfume && !id) {
     return (
       <div className="relative">
-        {/* <GradientTransition /> */}
         <section className="py-16 px-4 max-w-7xl mx-auto text-blue-900 pt-24">
           <h1 className="text-3xl font-bold text-blue-600 mb-8 text-center">Todos os Produtos</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -47,15 +62,26 @@ const ProductPage = () => {
             ))}
           </div>
         </section>
+
+        {/* Botão de scroll para o topo */}
+        {showScroll && (
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-5 right-5 z-50 bg-blue-700 hover:bg-blue-800 text-white p-3 rounded-full shadow-lg transition duration-300"
+            aria-label="Voltar ao topo"
+          >
+            <ArrowUp size={22} />
+          </button>
+        )}
       </div>
     );
   }
 
+  // Página de detalhe do produto
   if (!selectedPerfume) return <div>Carregando...</div>;
 
   return (
     <div className="relative">
-      {/* <GradientTransition /> */}
       <section className="py-16 px-4 max-w-7xl mx-auto text-blue-900 pt-24">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
           <div className="w-full md:w-1/3 flex justify-center">
@@ -90,44 +116,53 @@ const ProductPage = () => {
           </div>
         </div>
 
-        {id && (
-          <div className="mb-12 text-center">
-            <h2 className="text-2xl font-semibold text-blue-600 mb-6 inline-block">
-              Produtos Relacionados
-            </h2>
-            <Carousel
-              showThumbs={false}
-              infiniteLoop
-              centerMode
-              centerSlidePercentage={33.33}
-              emulateTouch
-              showStatus={false}
-              showIndicators={false}
-              dynamicHeight={false}
-              className="carousel-custom mx-auto"
-            >
-              {perfumes
-                .filter((p) => p.id !== id)
-                .slice(0, 6)
-                .map((p) => (
-                  <div
-                    key={p.id}
-                    className="cursor-pointer p-2"
-                    onClick={() => handleProductClick(p.id)}
-                  >
-                    <img
-                      src={p.imageUrl}
-                      alt={p.name}
-                      className="w-full h-32 object-contain rounded-md shadow-md border-2 border-blue-400 mx-auto"
-                    />
-                    <p className="mt-2 text-center font-medium text-blue-700">{p.name}</p>
-                    <p className="text-center font-bold text-yellow-600">R$ {p.price.toFixed(2)}</p>
-                  </div>
-                ))}
-            </Carousel>
-          </div>
-        )}
+        <div className="mb-12 text-center">
+          <h2 className="text-2xl font-semibold text-blue-600 mb-6 inline-block">
+            Produtos Relacionados
+          </h2>
+          <Carousel
+            showThumbs={false}
+            infiniteLoop
+            centerMode
+            centerSlidePercentage={33.33}
+            emulateTouch
+            showStatus={false}
+            showIndicators={false}
+            dynamicHeight={false}
+            className="carousel-custom mx-auto"
+          >
+            {perfumes
+              .filter((p) => p.id !== id)
+              .slice(0, 6)
+              .map((p) => (
+                <div
+                  key={p.id}
+                  className="cursor-pointer p-2"
+                  onClick={() => handleProductClick(p.id)}
+                >
+                  <img
+                    src={p.imageUrl}
+                    alt={p.name}
+                    className="w-full h-32 object-contain rounded-md shadow-md border-2 border-blue-400 mx-auto"
+                  />
+                  <p className="mt-2 text-center font-medium text-blue-700">{p.name}</p>
+                  <p className="text-center font-bold text-yellow-600">R$ {p.price.toFixed(2)}</p>
+                </div>
+              ))}
+          </Carousel>
+        </div>
       </section>
+
+      {/* Botão de scroll sempre disponível */}
+      {showScroll && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-5 right-5 z-50 bg-blue-700 hover:bg-blue-800 text-white p-3 rounded-full shadow-lg transition duration-300"
+          aria-label="Voltar ao topo"
+        >
+          <ArrowUp size={22} />
+        </button>
+      )}
     </div>
   );
 };

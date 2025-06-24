@@ -14,3 +14,14 @@
       justify-content: center !important;
     }
   }
+/* Comportamento de rolagem suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Evita barras horizontais inesperadas */
+body, .about-wrapper {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
