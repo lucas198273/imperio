@@ -35,7 +35,7 @@ export default function PerfumeCarrousel() {
     {
   id: "p2",
   name: "Arabic Collection Yara ",
-  price: 189.9,
+  price: 140.0,
   imageUrl: "/assets/masculinos/002-1.webp",
   description: "Inspirado no perfume Yara, o Arabic Collection A002 é uma fragrância feminina que une tradição e modernidade, com uma combinação envolvente e marcante.",
   notes: [
@@ -49,7 +49,7 @@ export default function PerfumeCarrousel() {
 {
   id: "p3",
   name: "Brand Collection 212 Vip Men ",
-  price: 199.9,
+  price: 130.0,
   imageUrl: "/assets/masculinos/008-2.webp",
   description: "Inspirado no 212 Vip Men de Carolina Herrera, o Brand Collection 008 é um perfume âmbar amadeirado com um frescor sofisticado que combina menta e vodka em uma explosão de aromas masculinos marcantes.",
   notes: [
@@ -65,7 +65,7 @@ export default function PerfumeCarrousel() {
 {
   id: "p4",
   name: "Arabic Collection  Amber Rouge (Orientica) ",
-  price: 79.9,
+  price: 130.0,
   imageUrl: "/assets/masculinos/026.webp",
   description: "Inspirado no Amber Rouge (Orientica) e reconhecido como o “irmão gêmeo” do Baccarat Rouge 540, o Arabic Collection A026 é uma fragrância unissex âmbar-amadeirada especiada, ideal para quem busca sofisticação marcante.",
   notes: [
@@ -82,7 +82,7 @@ export default function PerfumeCarrousel() {
    {
   id: "p5",
   name: "Brand Collection Bleu de Chanel",
-  price: 209.9,
+  price: 130.0,
   imageUrl: "/assets/masculinos/070-1.webp",
   description: "Inspirado no icônico Bleu de Chanel, o Brand Collection 070 é um perfume masculino aromático-amadeirado atemporal, com frescor revigorante e rastro sofisticado em frasco azul profundo.",
   notes: [
@@ -107,7 +107,7 @@ export default function PerfumeCarrousel() {
   {
   id: "p6",
   name: "Brand Collection   Olympéa 087",
-  price: 209.9,
+  price: 140.0,
   imageUrl: "/assets/masculinos/087-2.webp",
   description: "Inspirado no icônico Olympéa de Paco Rabanne, o Brand Collection 087 é uma fragrância feminina oriental floral com contraste marcante entre o frescor salgado e a doçura cremosa da baunilha, evocando a força de uma deusa moderna.",
   notes: [
@@ -125,7 +125,7 @@ export default function PerfumeCarrousel() {
 ,{
   id: "p7",
   name: "Brand Collection  Scandal 136",
-  price: 209.9,
+  price: 140.0,
   imageUrl: "/assets/masculinos/136-1.webp",
   description: "Inspirado no icônico Scandal de Jean Paul Gaultier, o Brand Collection 136 é uma fragrância feminina chypre gourmand poderosa, criada para causar impacto e empoderar. Uma verdadeira ‘revolução olfativa’ para uma mulher moderna e audaciosa.",
   notes: [
@@ -145,20 +145,26 @@ export default function PerfumeCarrousel() {
 }
   ];
 
-  const phoneNumber = "553198749678";
-  const handleWhatsApp = (perfume: Perfume) => {
-    const mensagem = encodeURIComponent(
-      `Olá! Tenho interesse no perfume "${perfume.name}" por R$${perfume.price.toFixed(2)}.`
-    );
-    const whatsappLink = `https://wa.me/${phoneNumber}?text=${mensagem}`;
-    window.open(whatsappLink, "_blank");
-    toast.info(`Mensagem enviada para o WhatsApp sobre ${perfume.name}!`, {
-      position: "top-right",
-      autoClose: 3000,
-      className: "bg-blue-600 text-white p-4 rounded-lg shadow-lg text-sm font-medium",
-    });
-    return whatsappLink;
-  };
+const phoneNumber = "553198749678";
+
+const handleWhatsApp = (perfume: Perfume) => {
+  const precoFormatado = perfume.price.toFixed(2).replace(".", ",");
+  const mensagem = encodeURIComponent(
+    `Olá! 👋 Me interessei pelo perfume "${perfume.name}" que está no site por R$${precoFormatado}.\n\nVocê poderia me passar mais detalhes sobre as formas de pagamento e entrega?\n\nObrigado(a)! ✨`
+  );
+
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${mensagem}`;
+  window.open(whatsappLink, "_blank");
+
+  toast.success(`Redirecionando para o WhatsApp com o perfume "${perfume.name}"`, {
+    position: "top-right",
+    autoClose: 3500,
+    className: "bg-green-600 text-white p-4 rounded-lg shadow-md text-sm font-medium",
+  });
+
+  return whatsappLink;
+};
+
 
   const handleAddToCart = (perfume: Perfume) => {
     if (perfume.inStock) {

@@ -10,14 +10,32 @@ interface Props {
 const Cart: React.FC<Props> = ({ onClose }) => {
   const { items, total, error, removeItem, clearCart, isCartOpen } = useCart();
 
-  const handleWhatsAppClick = () => {
-    if (items.length > 0) {
-      const message = `Olá! Quero comprar: ${items
-        .map((i) => `${i.name} x${i.quantity}`)
-        .join(", ")}. Total: R$${total.toFixed(2)}.`;
-      window.open(`https://wa.me/5531999999999?text=${encodeURIComponent(message)}`, "_blank");
-    }
-  };
+const handleWhatsAppClick = () => {
+  if (items.length === 0) return;
+
+  const itensFormatados = items
+    .map((item) => {
+      const precoUnitario = item.price.toFixed(2).replace(".", ",");
+      const subtotal = (item.price * item.quantity).toFixed(2).replace(".", ",");
+      return `• ${item.name}\n  Quantidade: ${item.quantity}\n  Valor unitário: R$ ${precoUnitario}\n  Subtotal: R$ ${subtotal}`;
+    })
+    .join("\n\n");
+
+  const totalFormatado = total.toFixed(2).replace(".", ",");
+
+  const mensagem = `
+Olá! 😊 Gostaria de finalizar meu pedido com os seguintes produtos:\n
+${itensFormatados}
+
+💰 Total geral: R$ ${totalFormatado}
+
+Por favor, poderia me confirmar a disponibilidade, formas de pagamento e opções de entrega?
+  `.trim();
+
+  const link = `https://wa.me/553198749678?text=${encodeURIComponent(mensagem)}`;
+  window.open(link, "_blank");
+};
+
 
   if (!isCartOpen) return null; // Não renderiza visualmente, mas permanece montado
 

@@ -13,15 +13,22 @@ const ProductCatalog: React.FC = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
+const handleWhatsApp = (perfume: Perfume) => {
+  const precoFormatado = perfume.price.toFixed(2).replace(".", ",");
+  const mensagem = encodeURIComponent(
+    `Olá! 👋 Estou interessado(a) no perfume "${perfume.name}" que vi no site por R$${precoFormatado}.\n\nPoderia me passar mais detalhes sobre as formas de pagamento e entrega?\n\nObrigado(a)!`
+  );
 
-  const handleWhatsApp = (perfume: Perfume) => {
-    const mensagem = encodeURIComponent(
-      `Olá! Tenho interesse no perfume "${perfume.name}" por R$${perfume.price.toFixed(2)}.`
-    );
-    const whatsappLink = `https://wa.me/553198749678?text=${mensagem}`;
-    window.open(whatsappLink, "_blank");
-    toast.info(`Mensagem enviada para o WhatsApp sobre ${perfume.name}!`);
-  };
+  const whatsappLink = `https://wa.me/553198749678?text=${mensagem}`;
+  window.open(whatsappLink, "_blank");
+
+  toast.info(`Abrindo WhatsApp com mensagem sobre "${perfume.name}"`, {
+    position: "top-right",
+    autoClose: 3000,
+    className: "bg-blue-600 text-white p-4 rounded-md shadow-md text-sm font-medium",
+  });
+};
+
 
   const handleAddToCart = (perfume: Perfume) => {
     if (perfume.available) {

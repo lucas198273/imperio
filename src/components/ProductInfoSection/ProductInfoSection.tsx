@@ -7,6 +7,9 @@ const ProductInfoSection: React.FC = () => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
+  const mensagemWhatsApp = `Olá! 😊 Estou interessado(a) nos perfumes disponíveis no site. Poderia me informar sobre a disponibilidade, valores e formas de envio? Desde já, agradeço!`;
+  const linkWhatsApp = `https://wa.me/553198749678?text=${encodeURIComponent(mensagemWhatsApp)}`;
+
   return (
     <section
       className="py-16 px-4 bg-white text-[#0a0a1a]"
@@ -45,7 +48,7 @@ const ProductInfoSection: React.FC = () => {
               consultar disponibilidade e personalizar sua compra.
             </p>
             <a
-              href="https://wa.me/553198749678"
+              href={linkWhatsApp}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-block px-6 py-3 rounded-lg transition-colors font-semibold"
