@@ -18,31 +18,22 @@ export default function Hero() {
             Perfumes com essência de realeza. Encontre o aroma perfeito que combina com sua alma.
           </p>
           <form onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
-            <button
-              type="submit"
-              className="inline-block px-6 py-3 rounded-full bg-[#d4af37] hover:bg-[#c8a44c] transition text-[#0a0a1a] font-semibold"
-            >
-              Faça seu Pedido
-            </button>
+           
           </form>
         </div>
 
         {/* Imagens */}
         <div className="w-full md:w-1/2 flex justify-center relative">
           {/* Fundo azul suave centralizado */}
-          <div className="absolute w-80 h-80 bg-[#00ced1]/20 blur-2xl rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0"></div>
+          <div className="absolute w-100 h-100 bg-[#00ced1]/20 blur-2xl rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0"></div>
 
           {/* Imagens dos perfumes */}
           <div className="flex items-center justify-center gap-4 md:gap-6 z-10 relative">
-            <img
-              src="/assets/masculinos/070-bgt.png"
-              alt="Frasco de perfume 1"
-              className="w-40 md:w-48 drop-shadow-[0_0_15px_rgba(0,206,209,0.7)] transition-transform hover:scale-105"
-            />
+          
             <img
               src="/assets/masculinos/205-2-bgt.png"
               alt="Frasco de perfume 2"
-              className="w-40 md:w-48 drop-shadow-[0_0_15px_rgba(0,206,209,0.7)] transition-transform hover:scale-105"
+              className="w-50 md:w-55 drop-shadow-[0_0_15px_rgba(0,206,209,0.7)] transition-transform hover:scale-105"
             />
           </div>
         </div>
