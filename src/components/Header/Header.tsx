@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 interface HeaderProps {
@@ -8,18 +8,31 @@ interface HeaderProps {
 
 export default function Header({ onCartClick, cartItemCount }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Fechar menu ao clicar fora
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0d1321] shadow-md h-20">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#104E8B] shadow-lg h-20">
       <div className="max-w-7xl mx-auto h-full px-4 flex items-center justify-between relative">
-        
         {/* Esquerda: Menu Desktop e Mobile */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4" ref={menuRef}>
           {/* Botão Mobile */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-white focus:outline-none"
+            className="md:hidden text-white focus:outline-none p-1 hover:bg-[#104E8B]/20 rounded"
             aria-label="Abrir menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
             {menuOpen ? (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -34,9 +47,9 @@ export default function Header({ onCartClick, cartItemCount }: HeaderProps) {
 
           {/* Menu Desktop */}
           <nav className="hidden md:flex space-x-6 font-semibold text-white text-sm">
-            <Link to="/" className="hover:text-[#3fa9f5] transition">Início</Link>
-            <Link to="/about" className="hover:text-[#3fa9f5] transition">Sobre</Link>
-            <Link to="/products" className="hover:text-[#3fa9f5] transition">Todos os Produtos</Link>
+            <Link to="/" className="hover:text-[#104E8B] transition-colors duration-200">Início</Link>
+            <Link to="/about" className="hover:text-[#104E8B] transition-colors duration-200">Sobre</Link>
+            <Link to="/products" className="hover:text-[#104E8B] transition-colors duration-200">Todos os Produtos</Link>
           </nav>
         </div>
 
@@ -46,17 +59,18 @@ export default function Header({ onCartClick, cartItemCount }: HeaderProps) {
             <img
               src="/assets/logo.jpeg"
               alt="Império dos Aromas"
-              className="h-25 sm:h-25 object-contain rounded-md"
+              className="h-16 sm:h-16 object-contain rounded-md"
               loading="eager"
             />
           </Link>
         </div>
 
         {/* Direita: Carrinho */}
-        <div className="flex items-center">
+        <div className="flex items-center space-x-2">
+          <h2 className="text-white text-sm">carrinho</h2>
           <button
             onClick={onCartClick}
-            className="text-white relative hover:text-yellow-300"
+            className="text-white relative hover:text-[#104E8B] transition-colors duration-200"
             aria-label="Abrir carrinho"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -72,10 +86,19 @@ export default function Header({ onCartClick, cartItemCount }: HeaderProps) {
 
         {/* Menu Mobile Aberto */}
         {menuOpen && (
-          <nav className="absolute top-full left-0 w-full bg-[#0d1321] shadow-lg z-40 px-6 py-4 flex flex-col space-y-4 md:hidden">
-            <Link to="/" onClick={() => setMenuOpen(false)} className="text-white hover:text-[#3fa9f5] transition">Início</Link>
-            <Link to="/about" onClick={() => setMenuOpen(false)} className="text-white hover:text-[#3fa9f5] transition">Sobre</Link>
-            <Link to="/products" onClick={() => setMenuOpen(false)} className="text-white hover:text-[#3fa9f5] transition">Todos os Produtos</Link>
+          <nav
+            id="mobile-menu"
+            className="absolute top-full left-0 w-full bg-[#1C2527] shadow-lg z-40 px-6 py-4 flex flex-col space-y-4 md:hidden transition-opacity duration-300 ease-in-out"
+          >
+            <Link to="/" onClick={() => setMenuOpen(false)} className="text-white hover:text-[#104E8B] transition-colors duration-200">
+              Início
+            </Link>
+            <Link to="/about" onClick={() => setMenuOpen(false)} className="text-white hover:text-[#104E8B] transition-colors duration-200">
+              Sobre
+            </Link>
+            <Link to="/products" onClick={() => setMenuOpen(false)} className="text-white hover:text-[#104E8B] transition-colors duration-200">
+              Todos os Produtos
+            </Link>
           </nav>
         )}
       </div>
