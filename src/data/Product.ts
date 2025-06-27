@@ -19,7 +19,7 @@ export const perfumes: Perfume[] = [
     "Cedro",
     "Ládano"
   ],
-  available: false,
+  available: true,
 },
 {
   id: "p2",
@@ -65,7 +65,7 @@ export const perfumes: Perfume[] = [
     "Cedro",
     "Resina de Abeto"
   ],
-  available: false,
+  available: true,
 }
 ,
    {
