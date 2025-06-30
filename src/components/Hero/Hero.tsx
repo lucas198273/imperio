@@ -31,11 +31,11 @@ export default function Hero() {
             <img
               src="/assets/masculinos/087-1-bgt.png"
               alt="Frasco de perfume 2"
-              className="w-40 md:w-48 drop-shadow-[0_0_15px_rgba(16,78,139,0.7)] transition-transform hover:scale-105"
+              className="w-48 md:w-48 drop-shadow-[0_0_15px_rgba(16,78,139,0.7)] transition-transform hover:scale-105"
             />    <img
               src="/assets/masculinos/070-bgt.png"
               alt="Frasco de perfume 2"
-              className="w-40 md:w-48 drop-shadow-[0_0_15px_rgba(16,78,139,0.7)] transition-transform hover:scale-105"
+              className="w-48 md:w-48 drop-shadow-[0_0_15px_rgba(16,78,139,0.7)] transition-transform hover:scale-105"
             />
           </div>
         </div>
