@@ -10,7 +10,7 @@ export default function Header({ onCartClick, cartItemCount }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[rgba(0,0,0,0.9)] backdrop-blur-sm shadow-lg h-20">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[rgba(40,72,169,0.7)] backdrop-blur-sm shadow-lg h-20">
       <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between relative">
         {/* Botão do menu mobile */}
         <div className="flex items-center z-10">
