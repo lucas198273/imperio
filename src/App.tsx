@@ -34,12 +34,13 @@ function AppContent() {
             <main className="pt-20 min-h-screen flex flex-col">
               <Hero />
               <AboutPerfumes />
-              <ProductInfoSection />
+              
               <div className="py-8">
                 <PerfumeCarrousel />
               </div>
               <AboutLoja />
               <ProductCatalog />
+              <ProductInfoSection />
               <SocialMediaSection />
             </main>
           }
