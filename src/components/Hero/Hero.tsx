@@ -3,7 +3,7 @@ export default function Hero() {
     <section className="relative text-[#b3932a] pt-28 pb-20 px-6 md:px-12 overflow-hidden min-h-[60vh]">
       {/* Fundo com imagem de mar */}
       <div
-        className="absolute inset-0 bg-[url('/baner.jpg')] bg-cover bg-center z-0"
+        className="absolute inset-0 bg-[url('/assets/baner.webp')] bg-cover bg-center z-0"
         style={{
           opacity: 0.9,
           filter: "brightness(0.95)",

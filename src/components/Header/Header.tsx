@@ -37,9 +37,9 @@ export default function Header({ onCartClick, cartItemCount }: HeaderProps) {
         <div className="absolute left-1/2 transform -translate-x-1/2 flex-shrink-0">
           <Link to="/" className="flex items-center">
             <img
-              src="/assets/logo.jpeg"
+              src="/assets/logo.webp"
               alt="Império dos Aromas"
-              className="h-16 w-auto object-contain"
+              className="h-26 w-auto object-contain"
               loading="eager"
             />
           </Link>
