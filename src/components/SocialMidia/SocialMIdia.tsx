@@ -6,7 +6,7 @@ const SocialMediaSection: React.FC = () => {
     <section className="py-12 px-4 bg-gradient-to-r from-white via-[#fef9c3] to-white text-[#0f172a]">
       <div className="max-w-4xl mx-auto text-center">
         <img
-          src="/assets/logo.jpeg"
+          src="/assets/logo.webp"
           alt="Perfumes Exclusivos"
           className="mx-auto mb-6 w-32 h-32 object-cover rounded-full border-4 border-[#facc15] shadow-xl"
         />
