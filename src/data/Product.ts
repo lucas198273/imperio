@@ -70,7 +70,7 @@ export const perfumes: Perfume[] = [
 ,
    {
   id: "p5",
-  name: "Brand Collection Bleu de Chanel",
+  name: "Brand Collection Bleu de Chanel 070",
   price: 130.0,
   imageUrl: "/assets/masculinos/070-1.webp",
   description: "Inspirado no icônico Bleu de Chanel, o Brand Collection 070 é um perfume masculino aromático-amadeirado atemporal, com frescor revigorante e rastro sofisticado em frasco azul profundo.",

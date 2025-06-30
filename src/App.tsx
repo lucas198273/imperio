@@ -15,7 +15,7 @@ import AboutLoja from "./components/AboutLoja/AboutLoja";
 import { CartProvider, useCart } from "../contexts/CartContext";
 import Cart from "./components/Cart/Cart";
 import ProductPage from "./pages/ProductPage";
-
+import AboutPerfumes from "./components/AboutPerfumes/AboutPerfumes";
 function AppContent() {
   const { items, total, toggleCart } = useCart();
 
@@ -33,6 +33,7 @@ function AppContent() {
           element={
             <main className="pt-20 min-h-screen flex flex-col">
               <Hero />
+              <AboutPerfumes />
               <ProductInfoSection />
               <div className="py-8">
                 <PerfumeCarrousel />
