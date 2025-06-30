@@ -60,23 +60,6 @@ export default function AboutLoja() {
         </div>
       </div>
 
-      {/* Botão de compra */}
-      <div className="max-w-6xl mx-auto mt-12 text-center" data-aos="fade-up" data-aos-delay="200">
-        <a
-          href="https://wa.me/5531999999999?text=Olá! Tenho interesse no Blue Dream 070 por R$199.90."
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-6 py-3 rounded-lg transition-colors font-semibold"
-          style={{
-            backgroundColor: "#d4af37",
-            color: "#0a0a1a",
-          }}
-          onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#c8a44c")}
-          onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#d4af37")}
-        >
-          Comprar via WhatsApp
-        </a>
-      </div>
     </section>
   );
 }

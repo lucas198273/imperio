@@ -24,7 +24,7 @@ function AppContent() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col ">
       <Header onCartClick={() => toggleCart(true)} cartItemCount={items.length} />
 
       <Routes>
