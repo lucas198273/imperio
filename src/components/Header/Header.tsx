@@ -10,7 +10,7 @@ export default function Header({ onCartClick, cartItemCount }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-blue-900 shadow-lg h-20">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[rgba(0,0,0,0.9)] backdrop-blur-sm shadow-lg h-20">
       <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between relative">
         {/* Botão do menu mobile */}
         <div className="flex items-center z-10">
@@ -27,10 +27,7 @@ export default function Header({ onCartClick, cartItemCount }: HeaderProps) {
           <nav className="hidden md:flex space-x-8 font-semibold text-white text-base items-center">
             <Link to="/" className="hover:text-blue-300 transition-colors duration-200">Início</Link>
             <Link to="/about" className="hover:text-blue-300 transition-colors duration-200">Sobre</Link>
-            <Link
-              to="/products"
-              className="hover:text-blue-300 transition-colors duration-200"
-            >
+            <Link to="/products" className="hover:text-blue-300 transition-colors duration-200">
               Todos os Produtos
             </Link>
           </nav>
@@ -42,7 +39,7 @@ export default function Header({ onCartClick, cartItemCount }: HeaderProps) {
             <img
               src="/assets/logo.jpeg"
               alt="Império dos Aromas"
-              className="h-28 w-auto object-contain"
+              className="h-16 w-auto object-contain"
               loading="eager"
             />
           </Link>
@@ -72,7 +69,7 @@ export default function Header({ onCartClick, cartItemCount }: HeaderProps) {
 
         {/* Menu mobile */}
         <nav
-          className={`md:hidden fixed top-20 left-0 w-full bg-blue-600 shadow-md z-40 px-6 py-4 space-y-4 transition-all duration-300 ease-in-out ${
+          className={`md:hidden fixed top-20 left-0 w-full bg-[rgba(0,0,0,0.5)] backdrop-blur-sm shadow-md z-40 px-6 py-4 space-y-4 transition-all duration-300 ease-in-out ${
             menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
           }`}
         >
