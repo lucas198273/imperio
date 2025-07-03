@@ -35,7 +35,7 @@ export default function PerfumeCarrousel() {
     {
   id: "p2",
   name: "Arabic Collection Yara ",
-  price: 140.0,
+  price: 110.0,
   imageUrl: "/assets/masculinos/002-1.webp",
   description: "Inspirado no perfume Yara, o Arabic Collection A002 é uma fragrância feminina que une tradição e modernidade, com uma combinação envolvente e marcante.",
   notes: [
@@ -49,7 +49,7 @@ export default function PerfumeCarrousel() {
 {
   id: "p3",
   name: "Brand Collection 212 Vip Men ",
-  price: 130.0,
+  price: 110.0,
   imageUrl: "/assets/masculinos/008-2.webp",
   description: "Inspirado no 212 Vip Men de Carolina Herrera, o Brand Collection 008 é um perfume âmbar amadeirado com um frescor sofisticado que combina menta e vodka em uma explosão de aromas masculinos marcantes.",
   notes: [
@@ -65,7 +65,7 @@ export default function PerfumeCarrousel() {
 {
   id: "p4",
   name: "Arabic Collection  Amber Rouge (Orientica) ",
-  price: 130.0,
+  price: 110.0,
   imageUrl: "/assets/masculinos/026.webp",
   description: "Inspirado no Amber Rouge (Orientica) e reconhecido como o “irmão gêmeo” do Baccarat Rouge 540, o Arabic Collection A026 é uma fragrância unissex âmbar-amadeirada especiada, ideal para quem busca sofisticação marcante.",
   notes: [
@@ -82,7 +82,7 @@ export default function PerfumeCarrousel() {
    {
   id: "p5",
   name: "Brand Collection Bleu de Chanel",
-  price: 130.0,
+  price: 120.0,
   imageUrl: "/assets/masculinos/070-1.webp",
   description: "Inspirado no icônico Bleu de Chanel, o Brand Collection 070 é um perfume masculino aromático-amadeirado atemporal, com frescor revigorante e rastro sofisticado em frasco azul profundo.",
   notes: [
@@ -107,7 +107,7 @@ export default function PerfumeCarrousel() {
   {
   id: "p6",
   name: "Brand Collection   Olympéa 087",
-  price: 140.0,
+  price: 120.0,
   imageUrl: "/assets/masculinos/087-2.webp",
   description: "Inspirado no icônico Olympéa de Paco Rabanne, o Brand Collection 087 é uma fragrância feminina oriental floral com contraste marcante entre o frescor salgado e a doçura cremosa da baunilha, evocando a força de uma deusa moderna.",
   notes: [
@@ -125,7 +125,7 @@ export default function PerfumeCarrousel() {
 ,{
   id: "p7",
   name: "Brand Collection  Scandal 136",
-  price: 140.0,
+  price: 120.0,
   imageUrl: "/assets/masculinos/136-1.webp",
   description: "Inspirado no icônico Scandal de Jean Paul Gaultier, o Brand Collection 136 é uma fragrância feminina chypre gourmand poderosa, criada para causar impacto e empoderar. Uma verdadeira ‘revolução olfativa’ para uma mulher moderna e audaciosa.",
   notes: [
