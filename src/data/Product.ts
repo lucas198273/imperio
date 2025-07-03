@@ -4,7 +4,7 @@ export const perfumes: Perfume[] = [
 {
   id: "p1",
   name: "Brand Collection Sauvage",
-  price: 130.0,
+  price: 120.0,
   imageUrl: "/assets/masculinos/100-1.webp",
   description: "Inspirado no Sauvage da Dior, o Brand Collection 100 é um perfume masculino oriental fougère que transmite uma aura selvagem, moderna e aventureira.",
   notes: [
@@ -24,7 +24,7 @@ export const perfumes: Perfume[] = [
 {
   id: "p2",
   name: "Arabic Collection Yara ",
-  price: 140.0,
+  price: 110.0,
   imageUrl: "/assets/masculinos/002-1.webp",
   description: "Inspirado no perfume Yara, o Arabic Collection A002 é uma fragrância feminina que une tradição e modernidade, com uma combinação envolvente e marcante.",
   notes: [
@@ -38,7 +38,7 @@ export const perfumes: Perfume[] = [
 {
   id: "p3",
   name: "Brand Collection 212 Vip Men ",
-  price: 130.0,
+  price: 110.0,
   imageUrl: "/assets/masculinos/008-2.webp",
   description: "Inspirado no 212 Vip Men de Carolina Herrera, o Brand Collection 008 é um perfume âmbar amadeirado com um frescor sofisticado que combina menta e vodka em uma explosão de aromas masculinos marcantes.",
   notes: [
@@ -54,7 +54,7 @@ export const perfumes: Perfume[] = [
 {
   id: "p4",
   name: "Arabic Collection  Amber Rouge (Orientica) ",
-  price: 130.0,
+  price: 110.0,
   imageUrl: "/assets/masculinos/026.webp",
   description: "Inspirado no Amber Rouge (Orientica) e reconhecido como o “irmão gêmeo” do Baccarat Rouge 540, o Arabic Collection A026 é uma fragrância unissex âmbar-amadeirada especiada, ideal para quem busca sofisticação marcante.",
   notes: [
@@ -71,7 +71,7 @@ export const perfumes: Perfume[] = [
    {
   id: "p5",
   name: "Brand Collection Bleu de Chanel 070",
-  price: 130.0,
+  price: 120.0,
   imageUrl: "/assets/masculinos/070-1.webp",
   description: "Inspirado no icônico Bleu de Chanel, o Brand Collection 070 é um perfume masculino aromático-amadeirado atemporal, com frescor revigorante e rastro sofisticado em frasco azul profundo.",
   notes: [
@@ -96,7 +96,7 @@ export const perfumes: Perfume[] = [
   {
   id: "p6",
   name: "Brand Collection   Olympéa 087",
-  price: 140.0,
+  price: 120.0,
   imageUrl: "/assets/masculinos/087-2.webp",
   description: "Inspirado no icônico Olympéa de Paco Rabanne, o Brand Collection 087 é uma fragrância feminina oriental floral com contraste marcante entre o frescor salgado e a doçura cremosa da baunilha, evocando a força de uma deusa moderna.",
   notes: [
@@ -114,7 +114,7 @@ export const perfumes: Perfume[] = [
 ,{
   id: "p7",
   name: "Brand Collection  Scandal 136",
-  price: 140.0,
+  price: 120.0,
   imageUrl: "/assets/masculinos/136-1.webp",
   description: "Inspirado no icônico Scandal de Jean Paul Gaultier, o Brand Collection 136 é uma fragrância feminina chypre gourmand poderosa, criada para causar impacto e empoderar. Uma verdadeira ‘revolução olfativa’ para uma mulher moderna e audaciosa.",
   notes: [
@@ -136,7 +136,7 @@ export const perfumes: Perfume[] = [
    {
   id: "p8",
   name: "Brand Collection 212 VIP Black",
-  price: 130.0,
+  price: 110.0,
   imageUrl: "/assets/masculinos/154-1.webp",
   description: "Inspirado no icônico 212 VIP Black de Carolina Herrera, o Brand Collection 154 é uma fragrância masculina aromático-fougère intensa, ideal para noites vibrantes e homens confiantes que vivem a noite como se fosse um shot de absinto.",
   notes: [
@@ -153,7 +153,7 @@ export const perfumes: Perfume[] = [
    {
   id: "p9",
   name: "Brand Collection Gaultier Divine",
-  price: 140.0,
+  price: 120.0,
   imageUrl: "/assets/masculinos/205-1.webp",
   description: "Inspirado no Gaultier Divine de Jean Paul Gaultier, o Brand Collection 205 é uma fragrância feminina floral gourmand marinha que celebra a deusa moderna, com notas que evocam uma combinação de flores brancas cremadas e sal marinho.",
   notes: [
@@ -170,8 +170,8 @@ export const perfumes: Perfume[] = [
 ,
   {
   id: "p10",
-  name: "Brand Collection 387",
-  price: 140.0,
+  name: "Brand Collection Wanted 387",
+  price: 120.0,
   imageUrl: "/assets/masculinos/387-1.webp",
   description: "Inspirado no The Most Wanted (Azzaro), o Brand Collection 387 é uma fragrância masculina fougère âmbar amadeirada, criada para homens que se jogam e vivem com coragem, exalando poder e sedução.",
   notes: [
